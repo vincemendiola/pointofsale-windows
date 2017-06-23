@@ -31,5 +31,11 @@ namespace PointofSale
             DialogCreateInventory dialog = new DialogCreateInventory();
             dialog.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListFormInventory form = new ListFormInventory();
+            form.Show();
+        }
     }
 }

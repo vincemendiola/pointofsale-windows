@@ -10,3 +10,4 @@ c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj
 c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.exe
 c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.pdb
 c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.DialogCreateInventory.resources
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.ListFormInventory.resources
