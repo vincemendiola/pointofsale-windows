@@ -7,7 +7,7 @@ using PointofSale.Interfaces;
 
 namespace PointofSale.Models
 {
-    class Inventory : ICrud
+    public class Inventory : ICrud
     {
         public int id { get; set; }
         public string code { get; set; }
