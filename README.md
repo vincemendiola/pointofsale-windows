@@ -3,9 +3,9 @@ Open source Point of Sale for windows, this project is initiated to provide thos
 
 Feel free to contribute your ideas and correct codes as you see fit.
 
-Scope (For Development)
-  Create, Read, Update and Delete Customer, Inventory, Sales
-  Export Transactions
-  Import Inventory
-  
-  Print Receipt
+## Scope (For Development)
+  <ul>
+  <li>Create, Read, Update and Delete Customer, Inventory, Sales</li>
+  <li>Export Transactions</li>
+  <li>Import Inventory</li>
+  <li>Print Receipt</li>
