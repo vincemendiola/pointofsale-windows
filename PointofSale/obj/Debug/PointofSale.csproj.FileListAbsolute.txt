@@ -1,1 +1,12 @@
 c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\bin\Debug\PointofSale.exe.config
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\bin\Debug\PointofSale.exe
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\bin\Debug\PointofSale.pdb
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\bin\Debug\MySql.Data.dll
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\bin\Debug\MySql.Data.xml
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.csprojResolveAssemblyReference.cache
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Main.resources
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Properties.Resources.resources
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.csproj.GenerateResource.Cache
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.exe
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.pdb
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.DialogCreateInventory.resources

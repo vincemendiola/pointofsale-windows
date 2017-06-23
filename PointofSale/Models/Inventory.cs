@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PointofSale.Interfaces;
-
+using PointofSale.Database;
 namespace PointofSale.Models
 {
     public class Inventory : ICrud
     {
+        DBHandler dbHandler = new DBHandler();
+
         public int id { get; set; }
         public string code { get; set; }
         public string name { get; set; }
@@ -33,7 +35,27 @@ namespace PointofSale.Models
 
         public bool save()
         {
-            return true;
+            try
+            {
+                string query = "INSERT INTO inventory(code,name,description,price) ";
+                query += "VALUES(@code,@name, @description, @price)";
+
+                dbHandler.setParameters("@code", code);
+                dbHandler.setParameters("@name", name);
+                dbHandler.setParameters("@description", description);
+                dbHandler.setParameters("@price", price);
+
+                var result = dbHandler.Insert(query);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+
+            
         }
     }
 }

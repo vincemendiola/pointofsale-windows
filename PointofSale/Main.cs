@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PointofSale.Database;
+using PointofSale.Forms;
 
 namespace PointofSale
 {
@@ -15,6 +17,19 @@ namespace PointofSale
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DBHandler db = new DBHandler();
+            db.Setup_Database();
+            MessageBox.Show("Tables Created");
+        }
+
+        private void btnCreateInventory_Click(object sender, EventArgs e)
+        {
+            DialogCreateInventory dialog = new DialogCreateInventory();
+            dialog.ShowDialog();
         }
     }
 }
