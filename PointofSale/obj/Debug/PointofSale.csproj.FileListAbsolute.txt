@@ -1,0 +1,1 @@
+c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\bin\Debug\PointofSale.exe.config
