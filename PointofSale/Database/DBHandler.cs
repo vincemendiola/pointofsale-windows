@@ -109,6 +109,8 @@ namespace PointofSale.Database
                 customer += "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
                 customer += "customer_id INT(6),";
                 customer += "name VARCHAR(60),";
+                customer += "first_name VARCHAR(60),";
+                customer += "last_name VARCHAR(60),";
                 customer += "email VARCHAR(60),";
                 customer += "code VARCHAR(60),";
                 customer += "address1 VARCHAR(60),";

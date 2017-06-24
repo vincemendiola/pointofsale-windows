@@ -11,6 +11,7 @@ namespace PointofSale.Models
     {
         public int id { get; set; }
         public string code { get; set; }
+        public string name { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public DateTime dateofBirth { get; set; }

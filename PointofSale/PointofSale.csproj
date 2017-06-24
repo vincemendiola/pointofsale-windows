@@ -48,11 +48,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DBHandler.cs" />
+    <Compile Include="Forms\Dialogs\DialogCreateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\DialogCreateCustomer.Designer.cs">
+      <DependentUpon>DialogCreateCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dialogs\DialogCreateInventory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dialogs\DialogCreateInventory.Designer.cs">
       <DependentUpon>DialogCreateInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListFormCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListFormCustomers.Designer.cs">
+      <DependentUpon>ListFormCustomers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ListFormInventory.cs">
       <SubType>Form</SubType>
@@ -68,7 +80,9 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseTransaction.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,8 +90,14 @@
     <Compile Include="Util\DGVHandler.cs" />
     <Compile Include="Util\ModelFunctions.cs" />
     <Compile Include="Util\PageOffsetList.cs" />
+    <EmbeddedResource Include="Forms\Dialogs\DialogCreateCustomer.resx">
+      <DependentUpon>DialogCreateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialogs\DialogCreateInventory.resx">
       <DependentUpon>DialogCreateInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListFormCustomers.resx">
+      <DependentUpon>ListFormCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListFormInventory.resx">
       <DependentUpon>ListFormInventory.cs</DependentUpon>
