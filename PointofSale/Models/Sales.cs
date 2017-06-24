@@ -46,6 +46,8 @@ namespace PointofSale.Models
         public decimal quantity { get; set; }
         public decimal discount { get; set; }
         public decimal cost { get; set; }
+        public decimal total { get; set; }
+        
 
         public bool deleteOne(int id)
         {

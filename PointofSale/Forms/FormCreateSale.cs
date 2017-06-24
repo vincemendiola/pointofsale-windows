@@ -73,6 +73,7 @@ namespace PointofSale.Forms
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("inventoryName", "Name", "inventoryName", false));
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("price", "Price", "price", false));
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("quantity", "Quantity", "quantity", false));
+            dgvItems.Columns.Add(DGVHandler.CreateTextBox("total", "Total", "total", true));
 
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.RowHeadersVisible = false;
@@ -93,7 +94,7 @@ namespace PointofSale.Forms
             validateSelection(ref salesDetail);
 
             salesDetails.Add(salesDetail);
-
+            bsSelectedItems.DataSource = null;
             bsSelectedItems.DataSource = salesDetails;
 
             selected_inventory = null;
