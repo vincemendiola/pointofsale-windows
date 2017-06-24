@@ -36,10 +36,12 @@ namespace PointofSale.Models
         }
     }
 
-    public class SalesDetail : ICrud
+    public class SalesDetail : IInventory, ICrud
     {
         public int salesId { get; set; }
         public int inventoryId { get; set; }
+        public string inventoryCode { get; set; }
+        public string inventoryName { get; set; }
         public decimal price { get; set; }
         public decimal quantity { get; set; }
         public decimal discount { get; set; }

@@ -60,6 +60,12 @@
     <Compile Include="Forms\Dialogs\DialogCreateInventory.Designer.cs">
       <DependentUpon>DialogCreateInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCreateSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCreateSale.Designer.cs">
+      <DependentUpon>FormCreateSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ListFormCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,7 @@
       <DependentUpon>ListFormInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICrud.cs" />
+    <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,13 +95,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DBDataHandler.cs" />
     <Compile Include="Util\DGVHandler.cs" />
+    <Compile Include="Util\MessageBoxHandler.cs" />
     <Compile Include="Util\ModelFunctions.cs" />
     <Compile Include="Util\PageOffsetList.cs" />
+    <Compile Include="Variables\Enums.cs" />
     <EmbeddedResource Include="Forms\Dialogs\DialogCreateCustomer.resx">
       <DependentUpon>DialogCreateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dialogs\DialogCreateInventory.resx">
       <DependentUpon>DialogCreateInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCreateSale.resx">
+      <DependentUpon>FormCreateSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListFormCustomers.resx">
       <DependentUpon>ListFormCustomers.cs</DependentUpon>

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PointofSale.Models;
+using PointofSale.Variables;
+using PointofSale.Util;
 
 namespace PointofSale.Forms.Dialogs
 {
@@ -22,7 +24,7 @@ namespace PointofSale.Forms.Dialogs
         {
             if(validateCustomer() && saveCustomer())
             {
-                
+                MessageBoxHandler.openBox("Success", "Custoemr saved", MessageBoxIcon.Information);
             }
 
         }
@@ -46,6 +48,7 @@ namespace PointofSale.Forms.Dialogs
                 Customer customer = new Customer();
 
                 customer.code = txCode.Text.ToString();
+                customer.name = txName.Text.ToString();
                 customer.firstName = txFirstName.Text.ToString();
                 customer.lastName = txLastName.Text.ToString();
                 customer.address1 = txAddress1.Text.ToString();

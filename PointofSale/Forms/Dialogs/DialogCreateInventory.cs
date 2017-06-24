@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PointofSale.Models;
+using PointofSale.Util;
 
 namespace PointofSale.Forms
 {
@@ -21,9 +22,9 @@ namespace PointofSale.Forms
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (validateForm())
+            if (validateForm() && saveInventory())
             {
-                saveInventory();
+                MessageBoxHandler.openBox("Inventory Saved", "Success", MessageBoxIcon.Information);
             }
         }
 
@@ -44,10 +45,7 @@ namespace PointofSale.Forms
                 inventory.name = txName.Text.ToString();
                 inventory.price = txPrice.Value;
 
-                inventory.save();
-
-
-                return true;
+                return inventory.save();
             }
             catch (Exception)
             {

@@ -50,5 +50,11 @@ namespace PointofSale
             ListFormCustomers form = new ListFormCustomers();
             form.Show();
         }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateSale formCreate = new FormCreateSale();
+            formCreate.Show();
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace PointofSale.Forms
 
             string limitQuery = "LIMIT " + startPage + "," + lastPage;
 
-            List<Inventory> records = Inventory.read(null, limitQuery);
+            List<Customer> records = Customer.read(null, limitQuery);
 
             dgvCustomer.DataSource = records;
         }
