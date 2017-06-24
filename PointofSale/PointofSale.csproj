@@ -78,6 +78,7 @@
     <Compile Include="Forms\ListFormInventory.Designer.cs">
       <DependentUpon>ListFormInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Globals\GlobalVariables.cs" />
     <Compile Include="Interfaces\ICrud.cs" />
     <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Main.cs">
@@ -93,6 +94,7 @@
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Computations.cs" />
     <Compile Include="Util\DBDataHandler.cs" />
     <Compile Include="Util\DGVHandler.cs" />
     <Compile Include="Util\MessageBoxHandler.cs" />
@@ -139,9 +141,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Globals\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

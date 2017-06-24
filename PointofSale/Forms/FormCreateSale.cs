@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PointofSale.Models;
 using PointofSale.Util;
+using PointofSale.Globals;
 
 namespace PointofSale.Forms
 {
@@ -127,6 +128,30 @@ namespace PointofSale.Forms
 
                 throw;
             }
+        }
+
+        // Computations
+
+        private void setTotal()
+        {
+            decimal total = 0;
+
+            foreach(SalesDetail saleDetail in salesDetails)
+            {
+                total += saleDetail.total;
+            }
+
+            labelTotal.Text = total.ToString(GlobalVariables.getCurrencyFormat());
+        }
+
+        private void setTotalNet()
+        {
+
+        }
+
+        private void bsSelectedItems_DataSourceChanged(object sender, EventArgs e)
+        {
+            setTotal();
         }
     }
 }

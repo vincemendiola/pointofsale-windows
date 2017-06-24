@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PointofSale.Interfaces;
+using PointofSale.Util;
 
 namespace PointofSale.Models
 {
@@ -46,8 +47,11 @@ namespace PointofSale.Models
         public decimal quantity { get; set; }
         public decimal discount { get; set; }
         public decimal cost { get; set; }
-        public decimal total { get; set; }
-        
+        public decimal total
+        {
+            get { return Computations.getTotalNet(price, discount, quantity);  }
+            set { total = value; }
+        }
 
         public bool deleteOne(int id)
         {

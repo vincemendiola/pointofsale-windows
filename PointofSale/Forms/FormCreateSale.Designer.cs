@@ -212,6 +212,10 @@
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
+            // bsSelectedItems
+            // 
+            this.bsSelectedItems.DataSourceChanged += new System.EventHandler(this.bsSelectedItems_DataSourceChanged);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;

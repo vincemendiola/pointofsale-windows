@@ -19,5 +19,15 @@ namespace PointofSale.Util
 
             return price * discountPercentage;
         }
+
+        public static decimal getDiscountedPrice(decimal price, decimal discount)
+        {
+            return price - getDiscountAmount(price, discount);
+        }
+
+        public static decimal getTotalNet(decimal price, decimal discount, decimal quantity)
+        {
+            return getDiscountedPrice(price, discount) * quantity;
+        }
     }
 }
