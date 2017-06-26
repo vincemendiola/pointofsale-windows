@@ -15,7 +15,10 @@ namespace PointofSale.Forms
 {
     public partial class FormCreateSale : Form
     {
-        private Inventory selected_inventory;
+        private Sales sale;
+        private Customer selectedCustomer;
+        private Inventory selectedInventory;
+        private DateTime dateNow = new DateTime();
         private List<SalesDetail> salesDetails = new List<SalesDetail>();
 
         public FormCreateSale()
@@ -72,7 +75,7 @@ namespace PointofSale.Forms
 
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("inventoryCode", "Code", "inventoryCode", false));
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("inventoryName", "Name", "inventoryName", false));
-            dgvItems.Columns.Add(DGVHandler.CreateTextBox("price", "Price", "price", false));
+            dgvItems.Columns.Add(DGVHandler.CreateTextBox("price", "Price", "price", true));
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("quantity", "Quantity", "quantity", false));
             dgvItems.Columns.Add(DGVHandler.CreateTextBox("total", "Total", "total", true));
 
@@ -87,10 +90,11 @@ namespace PointofSale.Forms
 
             SalesDetail salesDetail = new SalesDetail();
 
-            salesDetail.inventoryCode = selected_inventory.code;
-            salesDetail.inventoryName = selected_inventory.name;
-            salesDetail.inventoryId = selected_inventory.id;
-            salesDetail.price = selected_inventory.price;
+            salesDetail.inventoryCode = selectedInventory.code;
+            salesDetail.inventoryName = selectedInventory.name;
+            salesDetail.inventoryId = selectedInventory.id;
+            salesDetail.price = selectedInventory.price;
+            
 
             validateSelection(ref salesDetail);
 
@@ -98,20 +102,25 @@ namespace PointofSale.Forms
             bsSelectedItems.DataSource = null;
             bsSelectedItems.DataSource = salesDetails;
 
-            selected_inventory = null;
+            selectedInventory = null;
         }
 
         private void cbInventory_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            selected_inventory = (cbInventory.SelectedItem as Inventory);
-            txPrice.Value = selected_inventory.price;
+            selectedInventory = (cbInventory.SelectedItem as Inventory);
+            txPrice.Value = selectedInventory.price;
         }
 
         // Form Controls
 
         private void getCurrentSelectedInventory()
         {
-            selected_inventory = (cbInventory.SelectedItem as Inventory);
+            selectedInventory = (cbInventory.SelectedItem as Inventory);
+        }
+
+        private void getCurrentSelectedCustomer()
+        {
+            selectedCustomer = (cbCustomer.SelectedItem as Customer);
         }
 
         private void validateSelection(ref SalesDetail salesDetail)
@@ -122,6 +131,11 @@ namespace PointofSale.Forms
                 {
                     salesDetail.quantity = txQuantity.Value;
                 }
+
+                if (txDiscount.Value > 0)
+                {
+                    salesDetail.discount = txDiscount.Value;
+                }
             }
             catch (Exception)
             {
@@ -130,28 +144,104 @@ namespace PointofSale.Forms
             }
         }
 
+        private bool validateSales()
+        {
+            try
+            {
+                sale = new Sales();
+
+                if (selectedCustomer != null)
+                {
+                    sale.customerId = selectedCustomer.id;
+                }
+
+                sale.date = new DateTime();
+                sale.transactionNumber = ModelFunctions.getNextReferenceNumber("sale", "transaction_number");
+                sale.officialReceipt = ModelFunctions.getNextReferenceNumber("sale", "official_receipt");
+                sale.invoiceNumber = ModelFunctions.getNextReferenceNumber("sale", "invoicenumber");
+                sale.totalGross = 1000;
+
+                return true;
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.ToString());
+                return false;
+            }
+        }
+
+        
         // Computations
 
         private void setTotal()
         {
             decimal total = 0;
 
+            if (salesDetails.Count == 0) return;
+
             foreach(SalesDetail saleDetail in salesDetails)
             {
-                total += saleDetail.total;
+                total += saleDetail.totalGross;
             }
 
             labelTotal.Text = total.ToString(GlobalVariables.getCurrencyFormat());
         }
 
+        private void setTotalDiscount()
+        {
+            decimal total = 0;
+
+            if (salesDetails.Count == 0) return;
+
+            foreach (SalesDetail saleDetail in salesDetails)
+            {
+                total += saleDetail.discountAmount;
+            }
+
+            labelTotalDiscount.Text = total.ToString(GlobalVariables.getCurrencyFormat());
+        }
+
         private void setTotalNet()
         {
+            decimal total = 0;
 
+            if (salesDetails.Count == 0) return;
+
+            foreach (SalesDetail saleDetail in salesDetails)
+            {
+                total += saleDetail.total;
+            }
+
+            labelTotalNet.Text = total.ToString(GlobalVariables.getCurrencyFormat());
         }
 
         private void bsSelectedItems_DataSourceChanged(object sender, EventArgs e)
         {
             setTotal();
+            setTotalDiscount();
+            setTotalNet();
+        }
+
+        private void clearSalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            salesDetails = new List<SalesDetail>();
+            bsSelectedItems.DataSource = salesDetails;
+        }
+
+        private void btnSaveSales_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(validateSales() && sale.save())
+                {
+                    MessageBoxHandler.openBox("Sales Saved", "Success", MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBoxHandler.openBox("Error", err.ToString(), MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -9,9 +9,9 @@ namespace PointofSale.Util
 {
     public static class MessageBoxHandler
     {
-        public static void openBox(string title, string message, MessageBoxIcon msg)
+        public static void openBox(string title, string message, MessageBoxIcon msg = MessageBoxIcon.Information)
         {
-            MessageBox.Show(title, message, MessageBoxButtons.OK, msg);
+            MessageBox.Show(message, title, MessageBoxButtons.OK, msg);
         }
 
         

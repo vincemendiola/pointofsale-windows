@@ -55,6 +55,10 @@
             this.labelTotalVat = new System.Windows.Forms.Label();
             this.labelTotalNet = new System.Windows.Forms.Label();
             this.btnSaveSales = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearSalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txQuantity)).BeginInit();
@@ -64,12 +68,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsInventories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSelectedItems)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvItems
             // 
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Location = new System.Drawing.Point(12, 12);
+            this.dgvItems.Location = new System.Drawing.Point(12, 37);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.Size = new System.Drawing.Size(549, 461);
             this.dgvItems.TabIndex = 0;
@@ -327,17 +332,52 @@
             this.btnSaveSales.TabIndex = 4;
             this.btnSaveSales.Text = "POST SALES";
             this.btnSaveSales.UseVisualStyleBackColor = true;
+            this.btnSaveSales.Click += new System.EventHandler(this.btnSaveSales_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(881, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearSalesToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // clearSalesToolStripMenuItem
+            // 
+            this.clearSalesToolStripMenuItem.Name = "clearSalesToolStripMenuItem";
+            this.clearSalesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.clearSalesToolStripMenuItem.Text = "Clear Sales";
+            this.clearSalesToolStripMenuItem.Click += new System.EventHandler(this.clearSalesToolStripMenuItem_Click);
             // 
             // FormCreateSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 485);
+            this.ClientSize = new System.Drawing.Size(881, 510);
             this.Controls.Add(this.btnSaveSales);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dgvItems);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormCreateSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Sales";
@@ -352,7 +392,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsSelectedItems)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -384,5 +427,9 @@
         private System.Windows.Forms.Label labelTotalVat;
         private System.Windows.Forms.Label labelTotalNet;
         private System.Windows.Forms.Button btnSaveSales;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearSalesToolStripMenuItem;
     }
 }

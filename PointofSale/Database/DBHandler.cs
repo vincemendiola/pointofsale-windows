@@ -133,24 +133,29 @@ namespace PointofSale.Database
                 payment_type += "company_id int(6),";
                 payment_type += "is_deleted BOOLEAN DEFAULT False)Engine=InnoDB";
 
-                string pointofsale = "CREATE TABLE IF NOT EXISTS pointofsale(";
+                string pointofsale = "CREATE TABLE IF NOT EXISTS sale (";
                 pointofsale += "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
                 pointofsale += "sales_id INT(6),";
+                pointofsale += "invoicenumber VARCHAR(50) NOT NULL,";
+                pointofsale += "transaction_number VARCHAR(50) NOT NULL,";
                 pointofsale += "official_receipt VARCHAR(50) NOT NULL,";
                 pointofsale += "customer_id INT(6) NOT NULL,";
                 pointofsale += "date DATE NOT NULL,";
                 pointofsale += "is_from_offline BOOLEAN NOT NULL DEFAULT TRUE,";
-                pointofsale += "company_id INT(5) NOT NULL,";
-                pointofsale += "cashier_id INT(5) NOT NULL,";
+                pointofsale += "company_id INT(5),";
+                pointofsale += "cashier_id INT(5),";
                 pointofsale += "created_on DATETIME DEFAULT CURRENT_TIMESTAMP,";
                 pointofsale += "is_synced BOOLEAN DEFAULT FALSE,";
                 pointofsale += "is_held BOOLEAN DEFAULT FALSE,";
                 pointofsale += "is_cancelled BOOLEAN DEFAULT FALSE,";
                 pointofsale += "is_deleted BOOLEAN DEFAULT FALSE,";
                 pointofsale += "is_visible BOOLEAN DEFAULT TRUE,";
-                pointofsale += "total DECIMAL(17,6) NOT NULL DEFAULT 0.00)Engine=InnoDB";
+                pointofsale += "total_gross DECIMAL(17,6) NOT NULL DEFAULT 0.00,";
+                pointofsale += "total_discount DECIMAL(17,6) NOT NULL DEFAULT 0.00,";
+                pointofsale += "total_vat DECIMAL(17,6) NOT NULL DEFAULT 0.00,";
+                pointofsale += "total_net DECIMAL(17,6) NOT NULL DEFAULT 0.00)Engine=InnoDB";
 
-                string pointofsale_detail = "CREATE TABLE IF NOT EXISTS pointofsale_detail(";
+                string pointofsale_detail = "CREATE TABLE IF NOT EXISTS sale_detail(";
                 pointofsale_detail += "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
                 pointofsale_detail += "pointofsale_id INT(6) UNSIGNED NOT NULL,";
                 pointofsale_detail += "inventory_id INT(6),";

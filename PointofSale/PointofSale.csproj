@@ -97,6 +97,7 @@
     <Compile Include="Util\Computations.cs" />
     <Compile Include="Util\DBDataHandler.cs" />
     <Compile Include="Util\DGVHandler.cs" />
+    <Compile Include="Util\Formatter.cs" />
     <Compile Include="Util\MessageBoxHandler.cs" />
     <Compile Include="Util\ModelFunctions.cs" />
     <Compile Include="Util\PageOffsetList.cs" />

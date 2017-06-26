@@ -112,7 +112,7 @@
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.salesToolStripMenuItem.Text = "Sales";
             this.salesToolStripMenuItem.Click += new System.EventHandler(this.salesToolStripMenuItem_Click);
             // 
@@ -149,25 +149,25 @@
             // salesToolStripMenuItem1
             // 
             this.salesToolStripMenuItem1.Name = "salesToolStripMenuItem1";
-            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.salesToolStripMenuItem1.Text = "Sales";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(129, 6);
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // inventoriesToolStripMenuItem
             // 
             this.inventoriesToolStripMenuItem.Name = "inventoriesToolStripMenuItem";
-            this.inventoriesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.inventoriesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.inventoriesToolStripMenuItem.Text = "Inventories";
             this.inventoriesToolStripMenuItem.Click += new System.EventHandler(this.inventoriesToolStripMenuItem_Click);
             // 
@@ -193,6 +193,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Point of Sale";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
