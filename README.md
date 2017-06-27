@@ -3,11 +3,10 @@ Open source Point of Sale for windows, this project is initiated to provide thos
 
 Feel free to contribute your ideas and correct codes as you see fit.
 
-## Requirements or Dependencies :
-	* MySql Database
-	* MySql Connector
-	* Newton JSON (Install From Nugget)
-	* Visual Studio Installer
+## Requirements or Dependencies 
+* [MySql Database](https://dev.mysql.com/downloads/installer/)
+* [MySql Connector ODBC Driver](https://www.mysql.com/products/connector/)
+* [Visual Studio Installer](https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.MicrosoftVisualStudio2015InstallerProjects)
 
 ## Milestones:
 	* Create and Read Customer, Inventory (As of June 26, 2017)
