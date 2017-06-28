@@ -94,7 +94,6 @@ namespace PointofSale.Forms
             salesDetail.inventoryName = selectedInventory.name;
             salesDetail.inventoryId = selectedInventory.id;
             salesDetail.price = selectedInventory.price;
-            
 
             validateSelection(ref salesDetail);
 
@@ -150,15 +149,19 @@ namespace PointofSale.Forms
             {
                 sale = new Sales();
 
-                if (selectedCustomer != null)
+                getCurrentSelectedCustomer();
+
+                if (selectedCustomer == null)
                 {
-                    sale.customerId = selectedCustomer.id;
+                    throw new Exception("No Customer Selected");
                 }
 
+                sale.customerId = selectedCustomer.id;
                 sale.date = new DateTime();
                 sale.transactionNumber = ModelFunctions.getNextReferenceNumber("sale", "transaction_number");
                 sale.officialReceipt = ModelFunctions.getNextReferenceNumber("sale", "official_receipt");
                 sale.invoiceNumber = ModelFunctions.getNextReferenceNumber("sale", "invoicenumber");
+                sale.salesDetails = salesDetails;
                 sale.totalGross = 1000;
 
                 return true;

@@ -157,7 +157,7 @@ namespace PointofSale.Database
 
                 string pointofsale_detail = "CREATE TABLE IF NOT EXISTS sale_detail(";
                 pointofsale_detail += "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
-                pointofsale_detail += "pointofsale_id INT(6) UNSIGNED NOT NULL,";
+                pointofsale_detail += "sales_id INT(6) UNSIGNED NOT NULL,";
                 pointofsale_detail += "inventory_id INT(6),";
                 pointofsale_detail += "quantity DECIMAL(17,6) NOT NULL DEFAULT 0.00,";
                 pointofsale_detail += "price DECIMAL(17,6) NOT NULL DEFAULT 0.00,";

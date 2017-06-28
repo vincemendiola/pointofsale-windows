@@ -60,6 +60,7 @@ namespace PointofSale.Models
                 {
                     Inventory inventory = new Inventory();
 
+                    inventory.id = DBDataHandler.object_to_int(dbHandler.reader["id"]);
                     inventory.code = DBDataHandler.object_to_string(dbHandler.reader["code"]);
                     inventory.name = DBDataHandler.object_to_string(dbHandler.reader["name"]);
                     inventory.description = DBDataHandler.object_to_string(dbHandler.reader["description"]);

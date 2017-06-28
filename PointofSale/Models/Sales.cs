@@ -10,7 +10,7 @@ using PointofSale.Database;
 
 namespace PointofSale.Models
 {
-    public class Sales : BaseTransaction, ICrud
+    public class Sales : BaseTransaction, ICrud, ICustomer
     {
         DBHandler dbHandler = new DBHandler();
 
@@ -19,8 +19,10 @@ namespace PointofSale.Models
         public string invoiceNumber { get; set; }
         public string officialReceipt { get; set; }
         public int customerId { get; set; }
+        public string customerName { get; set; }
         public int cashierId { get; set; }
         public decimal total { get; set; }
+        public List<SalesDetail> salesDetails { get; set; }
 
         public bool deleteOne(int id)
         {
@@ -35,6 +37,51 @@ namespace PointofSale.Models
         public bool updateOne()
         {
             throw new NotImplementedException();
+        }
+
+        public static List<Sales> read(string whereQuery, string limitQuery)
+        {
+            try
+            {
+                List<Sales> sales = new List<Sales>();
+
+                DBHandler dbHandler = new DBHandler();
+
+                string query = "SELECT ";
+                query += " invoicenumber,";
+                query += " date,";
+                query += " total_gross,";
+                query += " customer.name AS customer_name";
+                query += " FROM sale ";
+                query += " LEFT JOIN customer ON sale.customer_id = customer.id ";
+
+                if (limitQuery != null)
+                {
+                    query += limitQuery;
+                }
+
+                dbHandler.OPEN(query);
+
+                while (dbHandler.reader.Read())
+                {
+                    Sales sale = new Sales();
+
+                    sale.customerName = DBDataHandler.object_to_string(dbHandler.reader["customer_name"]);
+                    sale.invoiceNumber = DBDataHandler.object_to_string(dbHandler.reader["invoicenumber"]);
+                    sale.date = Convert.ToDateTime(dbHandler.reader["date"]).Date;
+                    sale.totalGross = DBDataHandler.object_to_decimal(dbHandler.reader["total_gross"]);
+
+                    sales.Add(sale);
+                }
+
+                dbHandler.CLOSE();
+
+                return sales;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool save()
@@ -68,7 +115,14 @@ namespace PointofSale.Models
 
                 if (result is long)
                 {
-                    Console.WriteLine("Result is " + result);
+                    foreach(SalesDetail salesDetail in salesDetails)
+                    {
+                        if(!salesDetail.save(result))
+                        {
+                            throw new Exception("Error on Detail");
+                        }
+                    }
+
                     return true;
                 }else
                 {
@@ -84,8 +138,10 @@ namespace PointofSale.Models
         }
     }
 
-    public class SalesDetail : IInventory, ICrud
+    public class SalesDetail : IInventory, ICrudDetail
     {
+        DBHandler dbHandler = new DBHandler();
+
         public int salesId { get; set; }
         public int inventoryId { get; set; }
         public string inventoryCode { get; set; }
@@ -94,6 +150,7 @@ namespace PointofSale.Models
         public decimal quantity { get; set; }
         public decimal discount { get; set; }
         public decimal cost { get; set; }
+        public decimal vat { get; set; }
         public decimal discountAmount
         {
             get { return Computations.getDiscountAmount(price, discount); }
@@ -125,34 +182,46 @@ namespace PointofSale.Models
             throw new NotImplementedException();
         }
 
-        public bool save()
+        public bool save(long salesId)
         {
             try
             {
-                //string query = "INSERT sale(";
-                //query += "sales_number,";
-                //query += "customer_id,";
-                //query += "date,";
-                //query += "total)";
+                string query = "INSERT sale_detail(";
+                query += "sales_id,";
+                query += "inventory_id,";
+                query += "price,";
+                query += "quantity,";
+                query += "discount,";
+                query += "tax)";
 
-                //query += "VALUES(";
-                //query += "@sales_number,";
-                //query += "@customer_id,";
-                //query += "@date,";
-                //query += "@total)";
+                query += " VALUES(";
+                query += "@sales_id,";
+                query += "@inventory_id,";
+                query += "@price,";
+                query += "@quantity,";
+                query += "@discount,";
+                query += "@tax)";
 
-                //dbHandler.setParameters("@sales_number", sales_number);
-                //dbHandler.setParameters("@customer_id", customer_id);
-                //dbHandler.setParameters("@date", description);
-                //dbHandler.setParameters("@total", price);
+                dbHandler.setParameters("@sales_id", salesId);
+                dbHandler.setParameters("@inventory_id", inventoryId);
+                dbHandler.setParameters("@price", price);
+                dbHandler.setParameters("@quantity", quantity);
+                dbHandler.setParameters("@discount", discount);
+                dbHandler.setParameters("@tax", vat);
+                
+                var result = dbHandler.Insert(query);
 
-                //var result = dbHandler.Insert(query);
+                if (result is string)
+                {
+                    throw new Exception(result);
+                }
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception err)
             {
-                throw;
+                Console.WriteLine(err.ToString());
+                return false;
             }
         }
     }

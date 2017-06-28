@@ -14,4 +14,9 @@ namespace PointofSale.Interfaces
         bool save();
 
     }
+
+    interface ICrudDetail 
+    {
+        bool save(long id);
+    }
 }

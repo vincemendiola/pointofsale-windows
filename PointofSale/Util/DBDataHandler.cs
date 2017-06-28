@@ -26,5 +26,10 @@ namespace PointofSale.Util
 
             return (str_value == null || str_value.Length <= 0) ? 0 : int.Parse(str_value);
         }
+
+        public static DateTime object_to_date(object data)
+        {
+            return Convert.ToDateTime(data).Date;
+        }
     }
 }

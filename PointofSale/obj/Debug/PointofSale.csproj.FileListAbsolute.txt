@@ -14,3 +14,4 @@ c:\users\vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj
 C:\Users\Vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.Dialogs.DialogCreateCustomer.resources
 C:\Users\Vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.ListFormCustomers.resources
 C:\Users\Vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.FormCreateSale.resources
+C:\Users\Vince\documents\visual studio 2015\Projects\PointofSale\PointofSale\obj\Debug\PointofSale.Forms.ListFormSales.resources
